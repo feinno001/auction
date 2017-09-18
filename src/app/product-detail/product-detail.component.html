@@ -1,0 +1,19 @@
+<div class="thumbnail">
+  <img [src]='imgUrl'>
+  <div>
+    <h4 class="pull-right">${{product?.price}}</h4>
+    <h4>{{product?.title}}</h4>
+    <h4>{{product?.desc}}</h4>
+  </div>
+  <div>
+    <p class="pull-right">{{comments?.length}}</p>
+    <p>
+      <app-stars [rating]="product?.rating"></app-stars>
+    </p>
+  </div>
+</div>
+<div class="thumbnail" class="btn btn-default btn-lg" [class.active]="isWatched" (click)="watchProduct()">
+<button>{{isWatched?"取消关注":"关注"}}</button><label>&nbsp;最新报价:${{currentBid|number:'.2-2'}}</label>
+</div>
+
+<app-comment [product]="product" [(comments)]='comments'></app-comment>
